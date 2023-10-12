@@ -8,8 +8,22 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # action.yml
-name: 'Hello World'
+name: 'Hello World Docker Action'
 description: 'Greet someone and record the time'
+inputs:
+  who-to-greet: 
+    description: 'Who to greet'
+    required: true
+    default: 'world'
+ouputs:
+  time:
+    description: 'the time we said hello'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
+
 
 uses: actions/hello-world-docker-action@main
 with:
