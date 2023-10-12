@@ -6,3 +6,11 @@ COPY entrypoint.sh /entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
+
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+
+uses: actions/hello-world-docker-action@main
+with:
+  who-to-greet: 'Mona the Octocat'
